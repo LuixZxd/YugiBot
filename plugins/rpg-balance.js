@@ -5,7 +5,7 @@ let handler = async (m, { usedPrefix, command, args, conn }) => {
   if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
   else who = m.sender;
   let name = conn.getName(who);
-  let db = await conn.profilePictureUrl(who, "image").catch((_) => "https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg");
+  let db = await conn.profilePictureUrl(who, "image").catch((_) => "https://telegra.ph/file/e7ea071a2478ce4bf14da.mp4");
 
   let user = global.db.data.users[who];
   let action = command.toLowerCase();
