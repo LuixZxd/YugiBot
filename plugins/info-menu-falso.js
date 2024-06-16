@@ -483,9 +483,9 @@ ESO ES TODOS LOS COMANDOS
 //await conn.sendFile(m.chat, fantasyImg, 'lp.jpg', menu, fake0, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 𝙉𝙖𝙩𝙨𝙪𝙠𝙞𝘽𝙤𝙩 ', previewType: 0, thumbnail: picture, sourceUrl: nn }}})
 //await conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fake0)
 
-const natsuki = ['https://telegra.ph/file/4f111c56fda3a3fb49fb6.jpg',
-'https://telegra.ph/file/4f111c56fda3a3fb49fb6.jpg',
-'https://telegra.ph/file/4f111c56fda3a3fb49fb6.jpg']
+const natsuki = ['https://telegra.ph/file/39c8501fb4d6824739610.mp4',
+'https://telegra.ph/file/39c8501fb4d6824739610.mp4',
+'https://telegra.ph/file/39c8501fb4d6824739610.mp4']
 
 await conn.sendMessage(m.chat, { video: { url: natsuki.getRandom() }, gifPlayback: true, caption: menu, mentions: [m.sender, global.conn.user.jid] }, { quoted: fake0 }) 
 
