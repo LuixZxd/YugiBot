@@ -117,8 +117,8 @@ let menu = `
  _${usedPrefix}nsfwbdsm_
  _${usedPrefix}nsfwero_
  _${usedPrefix}nsfwglass_
- _${usedPrefix}hentaipdf *<texto>*_
- _${usedPrefix}hentaisearch *<texto>*_`.trim()
+ _${usedPrefix}hentaipdf 
+ _${usedPrefix}hentaisearch`.trim()
 await conn.sendFile(m.chat, picture, 'error.mp4', menu, fake0)
 
 } catch (e) {
