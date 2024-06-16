@@ -11,15 +11,15 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 
 // [ Agrega el número que será Bot y los que serán propietarios. ]
 global.owner = [
-["50250101139", 'Wilmer ofc', true],
-["50258115623"], 
-["51967997782"]
+["51925015528", 'Aldair ofc', true],
+["51925015528"], 
+["51925015528"]
 ]
 
 global.mods = []
 global.prems = []
 
-global.tagusario = ['50250101139'];
+global.tagusario = ['51925015528'];
 
 global.obtenerQrWeb = 0; //1 o 0
 global.keepAliveRender = 0; // 1 o 0
@@ -93,21 +93,21 @@ global.moment = moment
 //------------------------------------------------
 
 global.official = [
-["50250101139", 'Wilmer ofc', 1], 
-["50258115623", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
-["51996416792", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
-["50250101139", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
-["50258115623", 'Soporte', 1]]
+["51925015528", 'Aldair ofc', 1], 
+["51925015528", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
+["51925015528", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+["51925015528", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+["51925015528", 'Soporte', 1]]
 
 global.mail = '' // Add email
 global.desc = '' // Add short description (20 caractres max)
 global.desc2 = '' // Add long description (90 caractres max) (Este parámetro se aplicará sólo si su whasapp no tiene descripción)
 global.country = '' // Add country, example: 🇪🇨
 //------------------------------------------------
-global.fantasy = "𝐍𝐚𝐭𝐬𝐮𝐤𝐢𝐁𝐨𝐭 💐" // new name
-global.wilmerofc = "𝐍𝐚𝐭𝐬𝐮𝐤𝐢𝐁𝐨𝐭 ☃️" // fkontak2
-global.packname = `├┈‧͙⁺˚･༓☾ 𝚆𝙸𝙻𝙼𝙴𝚁 𝙾𝙵𝙲 ☽༓･˚⁺‧͙\n├┈ ⟴ 𝚈𝚘𝚞𝚃𝚞𝚋𝚎:\n├┈ @wilmer.oficial\n├┈ ⟴ 𝙸𝚗𝚜𝚝𝚊𝚐𝚛𝚊𝚖:\n├┈ @cmwilmer4\n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
-global.author =  ` ├┈‧͙･༓☾ 𝚆𝙸𝙻𝙼𝙴𝚁 𝙾𝙵𝙲 ☽༓･˚\n├┈⟴ 𝙶𝚒𝚝𝙷𝚞𝚋:\n├┈ Wilsmac\n├┈ ⟴ 𝙿𝚊𝚢𝙿𝚊𝚕:\n├┈ @wilmermacu1\n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
+global.fantasy = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_* " // new name
+global.wilmerofc = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_* " // fkontak2
+global.packname = `ALDAIR \n├┈ ⟴ 𝚈𝚘𝚞𝚃𝚞𝚋𝚎:\n├┈ \n├┈ ⟴ 𝙸𝚗𝚜𝚝𝚊𝚐𝚛𝚊𝚖:\n├┈ @aldair_dki\n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
+global.author =  ` ALDAIR \n├┈⟴ 𝙶𝚒𝚝𝙷𝚞𝚋:\n├┈ \n├┈ ⟴ 𝙿𝚊𝚢𝙿𝚊𝚕:\n├┈ \n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
 
 
 
@@ -131,7 +131,7 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 
 global.vs = "1.8.5"
 global.vsJB = "3.0"
-global.gt = "𝐍𝐚𝐭𝐬𝐮𝐤𝐢𝐁𝐨𝐭 ☃️"
+global.gt = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*"
 
 global.canalofc = "https://whatsapp.com/channel/0029VaCUlPX0LKZAlP10pC43"
 global.yt = "https://youtube.com/@wilmer.oficial"
@@ -215,29 +215,29 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://telegra.ph/file/6114942024c7658478830.jpg'
-global.img2 = 'https://telegra.ph/file/6114942024c7658478830.jpg'
+global.img = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img2 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
 
 global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
 global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
 
-global.img5 = 'https://telegra.ph/file/6114942024c7658478830.jpg'
-global.img6 = 'https://telegra.ph/file/6114942024c7658478830.jpg'
-global.img7 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
-global.img8 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
-global.img9 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
+global.img5 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img6 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img7 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img8 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img9 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
 
-global.img10 = 'https://telegra.ph/file/6114942024c7658478830.jpg'
-global.img11 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
-global.img12 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
+global.img10 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img11 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img12 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
 global.img13 = 'https://i.imgur.com/pCfFOgw.jpeg'
-global.img14 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
-global.img15 = 'https://telegra.ph/file/418da430e42952c392751.jpg'
+global.img14 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img15 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
 
-global.img16 = 'https://telegra.ph/file/6114942024c7658478830.jpg' //+18
+global.img16 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg' //+18
 
-global.img17 = 'https://telegra.ph/file/6114942024c7658478830.jpg'
-global.img18 = 'https://telegra.ph/file/6114942024c7658478830.jpg'
+global.img17 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
+global.img18 = 'https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg'
 
 global.logogit = 'https://tinyurl.com/2qvl9vgs'
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
