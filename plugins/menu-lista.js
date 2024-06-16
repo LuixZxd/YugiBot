@@ -134,7 +134,6 @@ name: "single_select",
 buttonParamsJson
 }]
 }}
-} else { 
 const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
 // Código para enviar la imagen
