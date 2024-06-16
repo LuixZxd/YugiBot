@@ -2,7 +2,7 @@ let media = './media/menus/Menu1.jpg'
 let handler = async (m, { conn, command }) => {
 let user = db.data.users[m.sender]
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let str = `HOLA TE SALUDA ALDAIR CREADOR DE ♡ 𝐌𝐄𝐆𝐔𝐌𝐈𝐍 - 𝐁𝐎𝐓 ♡ 
+let str = `HOLA TE SALUDA ALDAIR CREADOR DE *_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*
 
 AGRADEZCO QUE HAYAS USADO ESTE COMANDO SEGURO PARA DONAR ALGO 
 
