@@ -5,7 +5,7 @@ let handler = async (m, { usedPrefix, command, args, conn }) => {
   if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
   else who = m.sender;
   let name = conn.getName(who);
-  let db = await conn.profilePictureUrl(who, "image").catch((_) => "https://telegra.ph/file/e7ea071a2478ce4bf14da.mp4");
+  let db = await conn.profilePictureUrl(who, "image").catch((_) => "https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg");
 
   let user = global.db.data.users[who];
   let action = command.toLowerCase();
@@ -57,7 +57,7 @@ let handler = async (m, { usedPrefix, command, args, conn }) => {
               sourceUrl: "http://paypal.me/DorratBotOficial",
               mediaType: 1,
               showAdAttribution: true,
-              thumbnailUrl: "https://telegra.ph/file/e7ea071a2478ce4bf14da.mp4",
+              thumbnailUrl: "https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg",
             },
           },
         },
