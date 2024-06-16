@@ -1,40 +1,80 @@
-let handler = async (m, {usedPrefix}) => {	
-let who
-if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
-else who = m.sender
-let name = conn.getName(who) 
-await m.reply(`
-╭━〔 🔖 *BALANCE* 〕━⬣
-┃ *USUARIO(A) | USER*
-┃ ${name}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ *${global.db.data.users[who].limit} Diamantes* 💎
-╰━━━━〔 *𓃠 ${vs}* 〕━━━⬣\n\n*COMPRAR DIAMANTES CON EXP*
-${usedPrefix}buy *cantidad*
-${usedPrefix}buyall *cantidad*
+import fetch from 'node-fetch';
 
-*COMPRAR DIAMANTES CON GATACOINS*
-${usedPrefix}buy2 *cantidad*
-${usedPrefix}buyall2 *cantidad*`)
+let handler = async (m, { usedPrefix, command, args, conn }) => {
+  let who;
+  if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
+  else who = m.sender;
+  let name = conn.getName(who);
+  let db = await conn.profilePictureUrl(who, "image").catch((_) => "https://telegra.ph/file/6504bcd49f292ee6b3ec3.jpg");
 
-/*let d = `
-*COMPRAR DIAMANTES CON EXP*
-${usedPrefix}buy *cantidad*
-${usedPrefix}buyall *cantidad*
+  let user = global.db.data.users[who];
+  let action = command.toLowerCase();
+  
+  switch (action) {
+    case 'depositar':
+      if (!args[0] || isNaN(args[0])) return m.reply(`Por favor, ingresa la cantidad de diamantes que deseas depositar.`);
+      let depositAmount = parseInt(args[0]);
+      if (user.limit < depositAmount) return m.reply(`No tienes suficientes diamantes. Tienes ${user.limit} diamantes.`);
+      user.limit -= depositAmount;
+      user.banco = (user.banco || 0) + depositAmount;
+      m.reply(`Has depositado ${depositAmount} diamantes en el banco. Ahora tienes ${user.banco} diamantes en el banco.`);
+      break;
+      
+    case 'retirar':
+      if (!args[0] || isNaN(args[0])) return m.reply(`Por favor, ingresa la cantidad de diamantes que deseas retirar.`);
+      let withdrawAmount = parseInt(args[0]);
+      if ((user.banco || 0) < withdrawAmount) return m.reply(`No tienes suficientes diamantes en el banco. Tienes ${user.banco || 0} diamantes.`);
+      user.banco -= withdrawAmount;
+      user.limit += withdrawAmount;
+      m.reply(`Has retirado ${withdrawAmount} diamantes del banco. Ahora tienes ${user.limit} diamantes y ${user.banco} en el banco.`);
+      break;
 
-*COMPRAR DIAMANTES CON GATACOINS*
-${usedPrefix}buy2 *cantidad*
-${usedPrefix}buyall2 *cantidad*`
-conn.sendButton(m.chat, d, wm, [
-['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu'],
-['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu']
-], m)
-await conn.sendHydrated(m.chat, d, wm, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
-['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu'],
-['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu']
-], m,)*/
-}
-handler.help = ['bal']
-handler.tags = ['xp']
-handler.command = ['bal', 'diamantes', 'diamond', 'balance'] 
-export default handler
+    case 'banco':
+      let bankMessage = `
+       ╭──────༺♡༻──────╮
+       *𝙱𝙰𝙽𝙲𝙾 𝙳𝙴 𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳*
+        
+    *👤 𝚄𝚂𝚄𝙰𝚁𝙸𝙾:* ${name}
+    *💎 𝙳𝙸𝙰𝙼𝙰𝙽𝚃𝙴𝚂:* ${user.limit} 💎
+    *☯️ 𝚃𝙾𝙺𝙴𝙽𝚂:* ${user.joincount} ☯️
+
+    *💰 DIAMANTES GUARDADOS:* ${user.banco || 0} 💰
+
+    *CON EL BANCO DE 𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 SUS DIAMANTES ESTARÁN A SALVO*
+       ╰──────༺♡༻──────╯`.trim();
+
+      conn.sendMessage(
+        m.chat,
+        {
+          image: {
+            url: db,
+          },
+          caption: bankMessage,
+          contextInfo: {
+            mentionedJid: [m.sender],
+            externalAdReply: {
+              title: `RPG - BANK`,
+              sourceUrl: "http://paypal.me/DorratBotOficial",
+              mediaType: 1,
+              showAdAttribution: true,
+              thumbnailUrl: "https://telegra.ph/file/e7ea071a2478ce4bf14da.mp4",
+            },
+          },
+        },
+        {
+          quoted: m,
+        }
+      );
+      break;
+
+    default:
+      m.reply(`Comando no reconocido.`);
+      break;
+  }
+};
+
+handler.help = ['depositar <cantidad>', 'retirar <cantidad>', 'banco'];
+handler.tags = ['economia'];
+handler.command = ['depositar', 'retirar', 'banco'];
+
+export default handler;
