@@ -19,7 +19,7 @@ let username = conn.getName(who)
 let prem = global.prems.includes(who.split`@`[0])
 let sn = createHash('md5').update(who).digest('hex')
 let str =
-`*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*
+`HOLA BIENVENIDO
 
 *SU PERFIL <>*
 
