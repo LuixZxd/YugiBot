@@ -126,7 +126,7 @@ rows: [
 const interactiveMessage = {
 body: { text: menu },
 footer: { text: fantasy + ` \n` },
-header: { title: `⋆┈┈｡❃ུ۪ ❀ུ۪ ❁ུ۪ ❃ུ۪ ❀ུ۪ ｡┈┈⋆\n-ˋˏᴜsᴜᴀʀɪᴏ: ˎˊ-\n╭━━━━━━━━━━━━━━━╮\n┃🍁❥̷᜔ ${username}❁⃟ࣾ❥̷.⁞. ┃\n╰━━━┳━━━━━━━━━━━╯
+header: { title: `
      ╰ᴍᴇɴᴜ́:\n*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*
  ┈──❊:::::::¨¨*:::::::❊──┈\n_${global.saludo}_`, subtitle: "test4", hasMediaAttachment: false },
 nativeFlowMessage: { buttons: [{ 
