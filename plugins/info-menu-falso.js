@@ -484,8 +484,8 @@ ESO ES TODOS LOS COMANDOS
 //await conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fake0)
 
 const natsuki = ['https://telegra.ph/file/39c8501fb4d6824739610.mp4',
-'https://telegra.ph/file/39c8501fb4d6824739610.mp4',
-'https://telegra.ph/file/39c8501fb4d6824739610.mp4']
+'https://telegra.ph/file/5381e2bf05e765441038a.mp4',
+'https://telegra.ph/file/5381e2bf05e765441038a.mp4']
 
 await conn.sendMessage(m.chat, { video: { url: natsuki.getRandom() }, gifPlayback: true, caption: menu, mentions: [m.sender, global.conn.user.jid] }, { quoted: fake0 }) 
 
