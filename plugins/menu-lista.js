@@ -136,11 +136,6 @@ buttonParamsJson
 }}
 const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
-// Código para enviar la imagen
-    const imageUrl = 'https://telegra.ph/file/d859fe4513df21be44fea.jpg'
-    const response = await fetch(imageUrl)
-    const buffer = await response.buffer()
-    await conn.sendMessage(m.chat, { image: buffer, caption: menu, mentions: [m.sender] }, { quoted: m })
 
 } else { 
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser} 💖*
