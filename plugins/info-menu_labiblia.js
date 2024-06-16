@@ -96,8 +96,7 @@ ciudad = 'Lima'
             m.react('♦️') 
 let menu = `
 
-  *_MENU+18_* 
-┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
+
 ┣═╡♦️ _${usedPrefix}pack_
 ┣═╡♦️ _${usedPrefix}pack3_
 ┣═╡♦️ _${usedPrefix}videoxxx_
