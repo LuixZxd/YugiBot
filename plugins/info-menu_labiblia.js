@@ -97,29 +97,28 @@ ciudad = 'Lima'
 let menu = `
 
 
-┣═╡♦️ _${usedPrefix}pack_
-┣═╡♦️ _${usedPrefix}pack3_
-┣═╡♦️ _${usedPrefix}videoxxx_
-┣═╡♦️ _${usedPrefix}videolesbixxx_
-┣═╡♦️ _${usedPrefix}tetas_
-┣═╡♦️ _${usedPrefix}booty_
-┣═╡♦️ _${usedPrefix}ecchi_
-┣═╡♦️ _${usedPrefix}imagenlesbians_
-┣═╡♦️ _${usedPrefix}panties_
-┣═╡♦️ _${usedPrefix}porno_
-┣═╡♦️ _${usedPrefix}randomxxx_
-┣═╡♦️ _${usedPrefix}pechos_
-┣═╡♦️ _${usedPrefix}yuri_
-┣═╡♦️ _${usedPrefix}yuri2_
-┣═╡♦️ _${usedPrefix}hentai_
-┣═╡♦️ _${usedPrefix}nsfworgy_
-┣═╡♦️ _${usedPrefix}nsfwass_
-┣═╡♦️ _${usedPrefix}nsfwbdsm_
-┣═╡♦️ _${usedPrefix}nsfwero_
-┣═╡♦️ _${usedPrefix}nsfwglass_
-┣═╡♦️ _${usedPrefix}hentaipdf *<texto>*_
-┣═╡♦️ _${usedPrefix}hentaisearch *<texto>*_
-┗━━━━━━━━━━━━━━━━┛`.trim()
+ _${usedPrefix}pack_
+ _${usedPrefix}pack3_
+ _${usedPrefix}videoxxx_
+ _${usedPrefix}videolesbixxx_
+ _${usedPrefix}tetas_
+ _${usedPrefix}booty_
+ _${usedPrefix}ecchi_
+ _${usedPrefix}imagenlesbians_
+ _${usedPrefix}panties_
+ _${usedPrefix}porno_
+ _${usedPrefix}randomxxx_
+ _${usedPrefix}pechos_
+ _${usedPrefix}yuri_
+ _${usedPrefix}yuri2_
+ _${usedPrefix}hentai_
+ _${usedPrefix}nsfworgy_
+ _${usedPrefix}nsfwass_
+ _${usedPrefix}nsfwbdsm_
+ _${usedPrefix}nsfwero_
+ _${usedPrefix}nsfwglass_
+ _${usedPrefix}hentaipdf *<texto>*_
+ _${usedPrefix}hentaisearch *<texto>*_`.trim()
 await conn.sendFile(m.chat, picture, 'error.mp4', menu, fake0)
 
 } catch (e) {
