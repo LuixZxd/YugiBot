@@ -7,6 +7,167 @@ const { levelling } = '../lib/levelling.js'
 import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
 import { join } from 'path'
+
+let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
+  const dispositivo = await getDevice(m.key.id)
+  try {
+    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
+    let { exp, limit, level, role } = global.db.data.users[m.sender]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let name = await conn.getName(m.sender)
+    let d = new Date(new Date() + 3600000)
+    let locale = 'es'
+    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
+    let week = d.toLocaleDateString(locale, { weekday: 'long' })
+    let date = d.toLocaleDateString(locale, {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(d)
+    let time = d.toLocaleTimeString(locale, {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    })
+    let _uptime = process.uptime() * 1000
+    let _muptime
+    if (process.send) {
+      process.send('uptime')
+      _muptime = await new Promise(resolve => {
+        process.once('message', resolve)
+        setTimeout(resolve, 1000)
+      }) * 1000
+    }
+    let { money, joincount } = global.db.data.users[m.sender]
+    let user = global.db.data.users[m.sender]
+    let muptime = clockString(_muptime)
+    let uptime = clockString(_uptime)
+    let totalreg = Object.keys(global.db.data.users).length
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    let replace = {
+      '%': '%',
+      p: _p, uptime, muptime,
+      me: conn.getName(conn.user.jid),
+      npmname: _package.name,
+      npmdesc: _package.description,
+      version: _package.version,
+      exp: exp - min,
+      maxexp: xp,
+      totalexp: exp,
+      xp4levelup: max - exp,
+      github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
+      level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+      readmore: readMore
+    }
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let mentionedJid = [who]
+    let username = conn.getName(who)
+    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
+    let pp = gataVidMenu
+    let vn = 'https://qu.ax/bfaM.mp3'
+    let pareja = global.db.data.users[m.sender].pasangan 
+
+    const lugarFecha = moment().tz('America/Lima')
+    const formatoFecha = {
+      weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+      months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    }
+    lugarFecha.locale('es', formatoFecha)
+    const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
+
+    if (!/web|desktop|unknown/gi.test(dispositivo)) {  
+      let menu = `
+
+*BIENVENIDO A *_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*
+
+
+ ᴇᴄᴏɴᴏᴍɪ́ᴀ ꙰
+\`Experiencia:\` ${exp} ⚡
+\`Diamantes:\` ${limit} 💎
+\`GokuCoins:\` ${money} 💵
+\`Tokens:\` ${joincount} 🪙
+
+*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*`.trim()
+
+      const buttonParamsJson = JSON.stringify({
+        title: lenguajeCD['smsListaMenu'](),
+        description: "Infórmate por medios",
+        sections: [
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘽𝙤𝙩 🔮",
+            rows: [
+              { header: lenguajeCD['smsLista1'](), title: "", description: "INFORMACIÓN DEL BOT", id: usedPrefix + "estado" }
+            ]},
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘾𝙧𝙚𝙖𝙙𝙤𝙧 🍃",
+            rows: [
+              { header: lenguajeCD['smsLista2'](), title: "", description: "𝙸𝙽𝙵𝙊𝚁𝙼𝙰𝙲𝙸𝙾𝙽 𝙳𝙴 𝙼𝙸 𝙲𝚁𝙴𝙰𝙳𝙾𝚁", id: usedPrefix + "owner" }
+            ]},
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘿𝙤𝙣𝙖𝙧 🍁",
+            rows: [
+              { header: lenguajeCD['smsLista3'](), title: "", description: "𝙰𝙿𝙾𝚈𝙰𝚁 𝙰 𝙽𝚄𝚁𝚂𝚃𝚁𝙾 𝙿𝚁𝙾𝚈𝙴𝙲𝚃𝙾", id: usedPrefix + "donar" }
+            ]},
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝙈𝙚𝙣𝙪́𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 📚",
+            rows: [
+              { header: lenguajeCD['smsLista6'](), title: "", description: "𝙸𝙽𝙵𝙾 𝙳𝙴 𝚃𝙾𝙳𝙰 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂", id: usedPrefix + "menu2" }
+            ]},
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝙈𝙚𝙣𝙪 𝙡𝙖 𝙡𝙞𝙨𝙩𝙖 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤𝙨 🌱",
+            rows: [
+              { header: lenguajeCD['smsLista7'](), title: "", description: "𝙸𝙽𝙵𝙊 𝙳𝙴 𝚃𝙾𝙳𝙰 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂", id: usedPrefix + "menu" }
+            ]}
+        ]
+      })
+
+      const buttonMessage = {
+        contentText: menu,
+        footerText: '\n' + horarioFecha,
+        buttons: buttonParamsJson,
+        headerType: 1
+      }
+      
+      // Adjust this part to send a video
+      let videoMessage = {
+        video: { url: 'https://telegra.ph/file/f05a736b99f67abad6903.mp4' },  // Replace with the actual path to your video
+        caption: menu,
+        footer: '\n' + horarioFecha,
+        buttons: buttonParamsJson,
+        headerType: 5
+      }
+
+      await conn.sendMessage(m.key.remoteJid, videoMessage, { quoted: m })
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+function clockString(ms) {
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+}
+
+handler.help = ['menu']
+handler.tags = ['main']
+handler.command = /^(menu)$/i
+export default handler
+
+
+
+/*import { getDevice } from '@whiskeysockets/baileys'
+import fs from 'fs'
+import moment from 'moment-timezone'
+import fetch from 'node-fetch'
+import { xpRange } from '../lib/levelling.js'
+const { levelling } = '../lib/levelling.js'
+import PhoneNumber from 'awesome-phonenumber'
+import { promises } from 'fs'
+import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
 const dispositivo = await getDevice(m.key.id)
 try {
@@ -241,7 +402,7 @@ function clockString(ms) {
 let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
 let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
+return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}*/
 
 
 
@@ -249,6 +410,11 @@ return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
 
 
 
+
+
+
+
+	
 /*import fs from 'fs'
 import moment from 'moment-timezone'
 import fetch from 'node-fetch'
