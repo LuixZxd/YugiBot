@@ -11,9 +11,9 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 
 // [ Agrega el número que será Bot y los que serán propietarios. ]
 global.owner = [
-["51925015528", 'Aldair ofc', true],
-["51925015528"], 
-["51925015528"]
+["50558302262", 'Luis ofc', true],
+["50558302262"], 
+["50558302262"]
 ]
 
 global.mods = []
@@ -93,11 +93,11 @@ global.moment = moment
 //------------------------------------------------
 
 global.official = [
-["51925015528", 'Aldair ofc', 1], 
-["51925015528", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
-["51925015528", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
-["51925015528", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
-["51925015528", 'Soporte', 1]]
+["50558302262", 'Luis ofc', 1], 
+["50558302262", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],  
+["50558302262", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+["50558302262", '𝗗𝗲𝘀𝗮𝗿𝗿𝗼𝗹𝗹𝗮𝗱𝗼𝗿𝗮 𝗢𝗳𝗶𝗰𝗶𝗮𝗹 💻', 1],
+["50558302262", 'Soporte', 1]]
 
 global.mail = '' // Add email
 global.desc = '' // Add short description (20 caractres max)
@@ -106,8 +106,8 @@ global.country = '' // Add country, example: 🇪🇨
 //------------------------------------------------
 global.fantasy = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_* " // new name
 global.wilmerofc = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_* " // fkontak2
-global.packname = `ALDAIR \n├┈ ⟴ 𝚈𝚘𝚞𝚃𝚞𝚋𝚎:\n├┈ \n├┈ ⟴ 𝙸𝚗𝚜𝚝𝚊𝚐𝚛𝚊𝚖:\n├┈ @aldair_dki\n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
-global.author =  ` ALDAIR \n├┈⟴ 𝙶𝚒𝚝𝙷𝚞𝚋:\n├┈ \n├┈ ⟴ 𝙿𝚊𝚢𝙿𝚊𝚕:\n├┈ \n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
+global.packname = `--- \n├┈ ⟴ 𝚈𝚘𝚞𝚃𝚞𝚋𝚎:\n├┈ \n├┈ ⟴ 𝙸𝚗𝚜𝚝𝚊𝚐𝚛𝚊𝚖:\n├┈ @noistagram\n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
+global.author =  ` --- \n├┈⟴ 𝙶𝚒𝚝𝙷𝚞𝚋:\n├┈ \n├┈ ⟴ 𝙿𝚊𝚢𝙿𝚊𝚕:\n├┈ \n╰⊱⊶⊷⊶⊷⊶⊷⊶⊷⇲⊰⌏`
 
 
 
@@ -131,7 +131,7 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 
 global.vs = "1.8.5"
 global.vsJB = "3.0"
-global.gt = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*"
+global.gt = "YugiBot"
 
 global.canalofc = "https://whatsapp.com/channel/0029VafZvB6J3jv3qCnqNu3x"
 global.yt = "https://youtube.com/"
@@ -143,7 +143,7 @@ global.tk = "https://www.tiktok.com/"
 global.ths = "https://www.threads.net/"
 global.paypal = 'https://paypal.me/'
 global.asistencia = 'https://wa.me/message/C45GXBEFTPONE1' //Contacto
-global.bot = 'wa.me/51925015528'
+global.bot = 'wa.me/50558302262'
 
 global.nna = 'https://www.atom.bio//' // Cuentas
 global.nn2 = 'https://t.me/' // 
@@ -188,8 +188,8 @@ global.exito = eg
 
 //------------------------------------------------
 
-global.wm = "*_ALDAIR_*"
-global.igfg = "*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*"
+global.wm = "*LuisBot*"
+global.igfg = "*YugiBot*"
 global.wait = "⌛ *`Cargando...`*\n*✦✦⊹⊹⊹⊹⊹⊹⊹⊹✪* `[20%]`"
 global.waitt = "⏳ *`Cargando....`*\n*✦✦✦✦⊹⊹⊹⊹⊹⊹✪* `[40%]`"
 global.waittt = "⌛ *`Cargando...`*\n*✦✦✦✦✦✦⊹⊹⊹⊹✪* `[60%]`"
