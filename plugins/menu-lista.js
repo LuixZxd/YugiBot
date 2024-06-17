@@ -1,3 +1,5 @@
+const readMore = String.fromCharCode(8206).repeat(4001);
+
 import { getDevice } from '@whiskeysockets/baileys'
 import fs from 'fs'
 import moment from 'moment-timezone'
@@ -96,28 +98,28 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
 *_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*`.trim()
 
       const buttonParamsJson = JSON.stringify({
-        title: lenguajeCD['smsListaMenu'](),
+        title: "Menú de GokuBot",
         description: "Infórmate por medios",
         sections: [
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘽𝙤𝙩 🔮",
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Información del Bot 🔮",
             rows: [
-              { header: lenguajeCD['smsLista1'](), title: "", description: "INFORMACIÓN DEL BOT", id: usedPrefix + "estado" }
+              { header: "Estado del Bot", title: "", description: "INFORMACIÓN DEL BOT", id: usedPrefix + "estado" }
             ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘾𝙧𝙚𝙖𝙙𝙤𝙧 🍃",
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Información del Creador 🍃",
             rows: [
-              { header: lenguajeCD['smsLista2'](), title: "", description: "𝙸𝙽𝙵𝙊𝚁𝙼𝙰𝙲𝙸𝙾𝙽 𝙳𝙴 𝙼𝙸 𝙲𝚁𝙴𝙰𝙳𝙾𝚁", id: usedPrefix + "owner" }
+              { header: "Información del Creador", title: "", description: "INFORMACIÓN DE MI CREADOR", id: usedPrefix + "owner" }
             ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘿𝙤𝙣𝙖𝙧 🍁",
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Información para Donar 🍁",
             rows: [
-              { header: lenguajeCD['smsLista3'](), title: "", description: "𝙰𝙿𝙾𝚈𝙰𝚁 𝙰 𝙽𝚄𝚁𝚂𝚃𝚁𝙾 𝙿𝚁𝙾𝚈𝙴𝙲𝚃𝙾", id: usedPrefix + "donar" }
+              { header: "Apoya el Proyecto", title: "", description: "APOYAR A NUESTRO PROYECTO", id: usedPrefix + "donar" }
             ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝙈𝙚𝙣𝙪́𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 📚",
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Menú Completo 📚",
             rows: [
-              { header: lenguajeCD['smsLista6'](), title: "", description: "𝙸𝙽𝙵𝙾 𝙳𝙴 𝚃𝙾𝙳𝙰 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂", id: usedPrefix + "menu2" }
+              { header: "Lista Completa de Comandos", title: "", description: "INFO DE TODA LA LISTA DE COMANDOS", id: usedPrefix + "menu2" }
             ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝙈𝙚𝙣𝙪 𝙡𝙖 𝙡𝙞𝙨𝙩𝙖 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤𝙨 🌱",
+          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Menú Simplificado 🌱",
             rows: [
-              { header: lenguajeCD['smsLista7'](), title: "", description: "𝙸𝙽𝙵𝙊 𝙳𝙴 𝚃𝙾𝙳𝙰 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂", id: usedPrefix + "menu" }
+              { header: "Lista Simplificada de Comandos", title: "", description: "INFO DE TODA LA LISTA DE COMANDOS", id: usedPrefix + "menu" }
             ]}
         ]
       })
@@ -129,9 +131,9 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
         headerType: 1
       }
       
-      // Adjust this part to send a video
+      // Ajustar esta parte para enviar un video
       let videoMessage = {
-        video: { url: 'https://telegra.ph/file/f05a736b99f67abad6903.mp4' },  // Replace with the actual path to your video
+        video: { url: 'https://telegra.ph/file/f05a736b99f67abad6903.mp4' },  // Reemplaza con la ruta real a tu video
         caption: menu,
         footer: '\n' + horarioFecha,
         buttons: buttonParamsJson,
@@ -156,6 +158,7 @@ handler.help = ['menu']
 handler.tags = ['main']
 handler.command = /^(menu)$/i
 export default handler
+
 
 
 
