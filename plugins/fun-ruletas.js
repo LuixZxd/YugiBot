@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-    const ruletaresultado = "https://telegra.ph/file/4ff23bbd058ed696e7489.mp4";
+    const ruletaresultado = "https://telegra.ph/file/4ff23bbd058ed696e7489.mp4";  // URL of the video
 
     let amount = parseInt(args[0]);
     let color = args[1]?.toLowerCase();
@@ -28,7 +28,8 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
                  `*💎 𝙳𝙸𝙰𝙼𝙰𝙽𝚃𝙴𝚂:* ${user.limit}`;
     }
 
-    conn.sendMessage(m.chat, { image: { url: ruletaresultado }, caption: result }, { quoted: m });
+    // Send a video message instead of an image
+    await conn.sendMessage(m.chat, { video: { url: ruletaresultado }, caption: result }, { quoted: m });
 };
 
 handler.help = ['ruleta apuesta/color'];
