@@ -98,7 +98,7 @@ const buttonParamsJson = JSON.stringify({
 title: lenguajeCD['smsListaMenu'](),
 description: "Infórmate por medios",
 sections: [
-{ title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) 𝙄𝙣𝙛𝙤 𝘽𝙤𝙩 🔮",
+{ title: "(*YugiBot*) 𝙄𝙣𝙛𝙤 𝘽𝙤𝙩 🔮",
 rows: [
 { header: lenguajeCD['smsLista1'](), title: "", description: "INFORMACIÓN DEL BOT", id: usedPrefix + "estado" }
 ]},
