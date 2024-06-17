@@ -1,56 +1,56 @@
 const readMore = String.fromCharCode(8206).repeat(4001);
 
-import { getDevice } from '@whiskeysockets/baileys'
-import fs from 'fs'
-import moment from 'moment-timezone'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
-const { levelling } = '../lib/levelling.js'
-import PhoneNumber from 'awesome-phonenumber'
-import { promises } from 'fs'
-import { join } from 'path'
+import { getDevice } from '@whiskeysockets/baileys';
+import fs from 'fs';
+import moment from 'moment-timezone';
+import fetch from 'node-fetch';
+import { xpRange } from '../lib/levelling.js';
+const { levelling } = '../lib/levelling.js';
+import PhoneNumber from 'awesome-phonenumber';
+import { promises } from 'fs';
+import { join } from 'path';
 
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, command }) => {
-  const dispositivo = await getDevice(m.key.id)
+  const dispositivo = await getDevice(m.key.id);
   try {
-    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let { exp, limit, level, role } = global.db.data.users[m.sender]
-    let { min, xp, max } = xpRange(level, global.multiplier)
-    let name = await conn.getName(m.sender)
-    let d = new Date(new Date() + 3600000)
-    let locale = 'es'
-    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
-    let week = d.toLocaleDateString(locale, { weekday: 'long' })
+    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {};
+    let { exp, limit, level, role } = global.db.data.users[m.sender];
+    let { min, xp, max } = xpRange(level, global.multiplier);
+    let name = await conn.getName(m.sender);
+    let d = new Date(new Date() + 3600000);
+    let locale = 'es';
+    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5];
+    let week = d.toLocaleDateString(locale, { weekday: 'long' });
     let date = d.toLocaleDateString(locale, {
       day: 'numeric',
       month: 'long',
       year: 'numeric'
-    })
+    });
     let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
       day: 'numeric',
       month: 'long',
       year: 'numeric'
-    }).format(d)
+    }).format(d);
     let time = d.toLocaleTimeString(locale, {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric'
-    })
-    let _uptime = process.uptime() * 1000
-    let _muptime
+    });
+    let _uptime = process.uptime() * 1000;
+    let _muptime;
     if (process.send) {
-      process.send('uptime')
+      process.send('uptime');
       _muptime = await new Promise(resolve => {
-        process.once('message', resolve)
-        setTimeout(resolve, 1000)
-      }) * 1000
+        process.once('message', resolve);
+        setTimeout(resolve, 1000);
+      }) * 1000;
     }
-    let { money, joincount } = global.db.data.users[m.sender]
-    let user = global.db.data.users[m.sender]
-    let muptime = clockString(_muptime)
-    let uptime = clockString(_uptime)
-    let totalreg = Object.keys(global.db.data.users).length
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    let { money, joincount } = global.db.data.users[m.sender];
+    let user = global.db.data.users[m.sender];
+    let muptime = clockString(_muptime);
+    let uptime = clockString(_uptime);
+    let totalreg = Object.keys(global.db.data.users).length;
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length;
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
@@ -65,29 +65,27 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
       github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
       level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
-    }
-    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let mentionedJid = [who]
-    let username = conn.getName(who)
-    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-    let pp = gataVidMenu
-    let vn = 'https://qu.ax/bfaM.mp3'
-    let pareja = global.db.data.users[m.sender].pasangan 
+    };
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name]);
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    let mentionedJid = [who];
+    let username = conn.getName(who);
+    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
+    let pp = gataVidMenu;
+    let vn = 'https://qu.ax/bfaM.mp3';
+    let pareja = global.db.data.users[m.sender].pasangan;
 
-    const lugarFecha = moment().tz('America/Lima')
+    const lugarFecha = moment().tz('America/Lima');
     const formatoFecha = {
       weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-    }
-    lugarFecha.locale('es', formatoFecha)
-    const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
+    };
+    lugarFecha.locale('es', formatoFecha);
+    const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase());
 
-    if (!/web|desktop|unknown/gi.test(dispositivo)) {  
+    if (!/web|desktop|unknown/gi.test(dispositivo)) {
       let menu = `
-
 *BIENVENIDO A *_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*
-
 
  ᴇᴄᴏɴᴏᴍɪ́ᴀ ꙰
 \`Experiencia:\` ${exp} ⚡
@@ -95,69 +93,50 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
 \`GokuCoins:\` ${money} 💵
 \`Tokens:\` ${joincount} 🪙
 
-*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*`.trim()
+*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*`.trim();
 
-      const buttonParamsJson = JSON.stringify({
-        title: "Menú de GokuBot",
-        description: "Infórmate por medios",
-        sections: [
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Información del Bot 🔮",
-            rows: [
-              { header: "Estado del Bot", title: "", description: "INFORMACIÓN DEL BOT", id: usedPrefix + "estado" }
-            ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Información del Creador 🍃",
-            rows: [
-              { header: "Información del Creador", title: "", description: "INFORMACIÓN DE MI CREADOR", id: usedPrefix + "owner" }
-            ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Información para Donar 🍁",
-            rows: [
-              { header: "Apoya el Proyecto", title: "", description: "APOYAR A NUESTRO PROYECTO", id: usedPrefix + "donar" }
-            ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Menú Completo 📚",
-            rows: [
-              { header: "Lista Completa de Comandos", title: "", description: "INFO DE TODA LA LISTA DE COMANDOS", id: usedPrefix + "menu2" }
-            ]},
-          { title: "(*_𝙶𝙾𝙺𝚄_𝙱𝙾𝚃 - 𝙼𝙳_*) Menú Simplificado 🌱",
-            rows: [
-              { header: "Lista Simplificada de Comandos", title: "", description: "INFO DE TODA LA LISTA DE COMANDOS", id: usedPrefix + "menu" }
-            ]}
-        ]
-      })
+      const buttonParamsJson = [
+        { buttonId: usedPrefix + "estado", buttonText: { displayText: "Estado del Bot" }, type: 1 },
+        { buttonId: usedPrefix + "owner", buttonText: { displayText: "Información del Creador" }, type: 1 },
+        { buttonId: usedPrefix + "donar", buttonText: { displayText: "Apoya el Proyecto" }, type: 1 },
+        { buttonId: usedPrefix + "menu2", buttonText: { displayText: "Menú Completo" }, type: 1 },
+        { buttonId: usedPrefix + "menu", buttonText: { displayText: "Menú Simplificado" }, type: 1 }
+      ];
 
       const buttonMessage = {
         contentText: menu,
         footerText: '\n' + horarioFecha,
         buttons: buttonParamsJson,
         headerType: 1
-      }
-      
-      // Ajustar esta parte para enviar un video
+      };
+
       let videoMessage = {
-        video: { url: 'https://telegra.ph/file/f05a736b99f67abad6903.mp4' },  // Reemplaza con la ruta real a tu video
+        video: { url: 'https://telegra.ph/file/f05a736b99f67abad6903.mp4' }, // Reemplaza con la ruta real a tu video
         caption: menu,
         footer: '\n' + horarioFecha,
         buttons: buttonParamsJson,
         headerType: 5
-      }
+      };
 
-      await conn.sendMessage(m.key.remoteJid, videoMessage, { quoted: m })
+      await conn.sendMessage(m.key.remoteJid, videoMessage, { quoted: m });
     }
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
-}
+};
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
 }
 
-handler.help = ['menu']
-handler.tags = ['main']
-handler.command = /^(menu)$/i
-export default handler
+handler.help = ['menu'];
+handler.tags = ['main'];
+handler.command = /^(menu)$/i;
+export default handler;
+
 
 
 
